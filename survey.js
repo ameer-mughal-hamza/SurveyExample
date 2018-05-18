@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'question_text': 'Do you have a CDL and operate an interstate or/and intrastate business on public roads?',
         'question_value': 2,
         'coreg_field': 'f12345',
+        'logo' : 'path_to_logo'
         // 'options': [
         //   {
         //     'text': 'yes',
@@ -124,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var question = document.querySelector('.question').classList.add('visible');
 
     function switch_questions(clicked_yes) {
-        alert('yes clicked');
         clicked_yes = clicked_yes || false;
 
         var current_question = document.querySelector('.question.visible');
@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (clicked_yes == false) {
 
-            alert('No pressed on very first attempt.');
 
             var current_question = document.querySelector('.question.visible');
             var questionNode = question_template.content.querySelector('.question').cloneNode(true);
@@ -175,8 +174,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //yes button handler
     for (var i = 0; i < clicked.length; i++) {
+        alert('inner-loop');
         clicked[i].addEventListener('click', function () {
-
+            alert('clicked[]');
             var question_value = parseFloat(document.querySelector('.question.visible .question-value').value);
             var floating_counter = document.querySelector('.floating-progress-counter');
             var total_points = static_counter.innerHTML;
